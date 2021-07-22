@@ -2,11 +2,11 @@
 
 # Présentation
 
-![speaker](./assets/images/jf.jpg)
+![speaker](./assets/images/.jpg)
 ![badge](./assets/images/gde.png)
 ![company](./assets/images/logo_sfeir_bleu_orange.png)
 
-## Aurelien Joly
+## Omar Chahbouni
 
 ### Dev Java backend
 <!-- .element: class="icon-rule icon-first" -->
