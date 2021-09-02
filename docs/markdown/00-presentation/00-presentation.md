@@ -19,12 +19,30 @@
 
 # Présentation
 
-![speaker](./assets/images/jf.jpg)
+![speaker](./assets/images/ajy.png)
 ![company](./assets/images/logo_sfeir_bleu_orange.png)
 
-## Jean-François Garreau
+## Aurélien Joly
 
-### CTO front
+### Dev Backend Java
+<!-- .element: class="icon-rule icon-first" -->
+
+### @CaptainCrunch59
+<!-- .element: class="icon-twitter icon-second" -->
+
+##==##
+
+<!-- .slide: class="speaker-slide" -->
+
+
+# Présentation
+
+![speaker](./assets/images/oci.jpg)
+![company](./assets/images/logo_sfeir_bleu_orange.png)
+
+## Omar Chahbouni
+
+### Dev Fullstack
 <!-- .element: class="icon-rule icon-first" -->
 
 ### @jefbinomed
