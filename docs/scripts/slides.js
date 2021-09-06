@@ -47,9 +47,7 @@ function configurationSlides() {
 function oauthSlides() {
   return [
     '05-oauth/00-title.md',
-    '05-oauth/010-oauth2.md',
-    '05-oauth/011-resource-server.md',
-    '05-oauth/020-authorization-server.md',
+    '05-oauth/010-oauth2.md'
   ]
 }
 
