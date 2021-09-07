@@ -1,13 +1,13 @@
-package org.sfeir.springsecurityschool.starter;
+package org.sfeir.springsecurityschool;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringSecuritySchoolStarterApplication {
+public class CustomAccessDecisionManangerStarterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringSecuritySchoolStarterApplication.class, args);
+		SpringApplication.run(CustomAccessDecisionManangerStarterApplication.class, args);
 	}
 
 }
