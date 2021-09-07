@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.sfeir</groupId>
-	<artifactId>spring-security-school-starter</artifactId>
+	<artifactId>spring-security-school-oauth2-resource-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security-school-uuid-filter</name>
-	<description>uuid filter for spring security school</description>
+	<name>spring-security-school-resource-server</name>
+	<description>resource server for spring security school</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -46,11 +46,20 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.6</version>
-		</dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.12.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+    </dependency>
 	</dependencies>
 
 	<build>
