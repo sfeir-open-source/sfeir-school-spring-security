@@ -17,7 +17,7 @@ import java.io.IOException;
 public class JwtTokenFilter extends OncePerRequestFilter {
 
     public static final String TOKEN = "token";
-    public static final String OAUTH_AUTHORIZE_URI = "/helloworld";
+    public static final String OAUTH_AUTHORIZE_URI = "/hello";
     private final TokenAuthenticationProvider tokenAuthenticationProvider;
 
     public JwtTokenFilter(TokenAuthenticationProvider tokenAuthenticationProvider) {

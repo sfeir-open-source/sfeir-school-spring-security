@@ -16,7 +16,11 @@ public class TokenAuthenticationProvider implements AuthenticationProvider {
 
     private JwkService jwkService;
 
-    @Override
+  public TokenAuthenticationProvider(JwkService jwkService) {
+    this.jwkService = jwkService;
+  }
+
+  @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         AuthenticationToken token = (AuthenticationToken) authentication;
         try {
