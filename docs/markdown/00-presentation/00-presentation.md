@@ -45,9 +45,6 @@
 ### Dev Fullstack
 <!-- .element: class="icon-rule icon-first" -->
 
-### @jefbinomed
-<!-- .element: class="icon-twitter icon-second" -->
-
 ##==##
 
 # Rappel important avant de commencer

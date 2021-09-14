@@ -72,8 +72,197 @@
 ##==##
 # Ajouter un filtre: implémentation
 
+```java
+public class CustomFilter { 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter() throws IOException, ServletException {
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter(
+     ServletRequest request
+  ) throws IOException, ServletException {
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter(
+     ServletRequest request, 
+     ServletResponse response
+  ) throws IOException, ServletException {
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter(
+     ServletRequest request, 
+     ServletResponse response, 
+     FilterChain filterChain 
+  ) throws IOException, ServletException {
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter(
+     ServletRequest request, 
+     ServletResponse response, 
+     FilterChain filterChain 
+  ) throws IOException, ServletException {
+    var httpRequest = (HttpServletRequest) request; 
+    var httpResponse = (HttpServletResponse) response; 
+    String requestId = httpRequest.getHeader("Request-Id");
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter(
+     ServletRequest request, 
+     ServletResponse response, 
+     FilterChain filterChain 
+  ) throws IOException, ServletException {
+    var httpRequest = (HttpServletRequest) request; 
+    var httpResponse = (HttpServletResponse) response; 
+    String requestId = httpRequest.getHeader("Request-Id");
+    
+    if (requestId == null || requestId.isBlank()) { 
+      httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+      return;
+    }
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+public class CustomFilter implements Filter { 
+    
+  @Override
+  public void doFilter(
+     ServletRequest request, 
+     ServletResponse response, 
+     FilterChain filterChain 
+  ) throws IOException, ServletException {
+    var httpRequest = (HttpServletRequest) request; 
+    var httpResponse = (HttpServletResponse) response; 
+    String requestId = httpRequest.getHeader("Request-Id");
+    
+    if (requestId == null || requestId.isBlank()) { 
+      httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+      return;
+    }
+    
+    filterChain.doFilter(request, response); 
+  } 
+}
+```
+
+##==##
+# Ajouter un filtre: implémentation
+
+```java
+@Configuration
+public class ProjectConfig extends WebSecurityConfigurerAdapter {
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http
+      .addFilterBefore(new CustomFilter(), BasicAuthenticationFilter.class)
+      .authorizeRequests()
+      .anyRequest()
+      .authenticated();
+  } 
+}
+```
+
 ##==##
 # La classe OncePerRequestFilter
+
+<ul>
+    <li class="fragment">Une seule fois par requête</li>
+    <li class="fragment">Les requêtes sont en HTTP</i></li>
+    <li class="fragment">Surcharge de méthodes (exemple: shouldNotFilter(HttpServletRequest))</li>
+</ul>
+
+##==##
+# La classe OncePerRequestFilter
+
+<ul>
+    <li>Une seule fois par requête</li>
+    <li>Les requêtes sont en HTTP</li>
+    <li>Surcharge de méthodes (exemple: shouldNotFilter(HttpServletRequest))</li>
+</ul>
+
+```java
+public class AuthenticationLoggingFilter extends OncePerRequestFilter {
+
+
+    @Override
+    protected void doFilterInternal(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            FilterChain filterChain
+    ) throws ServletException, IOException {
+        String requestId = request.getHeader("Request-Id");
+        // Some code...
+        filterChain.doFilter(request, response);
+    }
+}
+```
+
 
 ##==##
 # Ordre des filtres

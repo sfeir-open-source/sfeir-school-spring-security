@@ -171,15 +171,100 @@ public interface UserDetailsManager extends UserDetailsService {
 ```
 
 ##==##
-# Utiliser le bean UserDetails
-TODO: ajouter code snippet 
-
-##==##
 # Ce que fournit Spring Security
-
 <ul>
     <li class="fragment">InMemoryUserDetailsManager</li>
     <li class="fragment">JdbcUserDetailsManager</li>
     <li class="fragment">LdapUserDetailsManager</li>
-    <li class="fragment">CustomUserDetails</li>
+    <li class="fragment">Custom UserDetailsManager</li>
 </ul>
+
+##==##
+# Indiquer à Spring comment récupérer les utilisateurs
+3 façons:
+<ul>
+    <li class="fragment">Implicitement</li>
+</ul>
+
+##==##
+# Indiquer à Spring comment récupérer les utilisateurs
+3 façons:
+<ul>
+    <li>Implicitement</li>
+    <li>Créer un bean</li>
+</ul>
+
+##==##
+# Indiquer à Spring comment récupérer les utilisateurs
+3 façons:
+<ul>
+    <li>Implicitement</li>
+    <li>Créer un bean</li>
+</ul>
+
+```java
+@EnableWebSecurity
+@Configuration
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+
+  @Autowired
+  private DataSource dataSource;
+  
+  // ...
+  
+  @Bean
+  public UserDetailsService userDetailsService(DataSource dataSource) {
+    return new JdbcUserDetailsManager(dataSource);
+  }
+  // ...
+}
+```
+
+##==##
+# Indiquer à Spring comment récupérer les utilisateurs
+3 façons:
+<ul>
+    <li>Implicitement</li>
+    <li>Créer un bean</li>
+    <li>Ajouter le UserDetailsService (ou UserDetailsManager) à l'AuthenticationManagerBuilder</li>
+</ul>
+
+##==##
+# Indiquer à Spring comment récupérer les utilisateurs
+3 façons:
+<ul>
+    <li>Implicitement</li>
+    <li>Créer un bean</li>
+    <li>Ajouter le UserDetailsService (ou UserDetailsManager) à l'AuthenticationManagerBuilder</li>
+</ul>
+
+```java
+@EnableWebSecurity
+@Configuration
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+
+  @Autowired
+  private DataSource dataSource;
+  
+  // ...
+
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.jdbcAuthentication().dataSource(dataSource);
+  }
+
+  // ...
+}
+```
+
+##==##
+<!-- .slide: class="exercice" -->
+# Récupérer les utilisateurs
+## Exercice 3
+<br>
+On veut utiliser un service "custom" pour récupérer nos utilisateurs.
+<br>
+
+Indices: changer les classes SchoolUserDetailsService et UserDetailsService
+
+### Bonus: Rajouter un encoder pour gérer nos mots de passe (utiliser SCryptEncoder)
