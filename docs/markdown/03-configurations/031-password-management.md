@@ -7,6 +7,10 @@
 ##==##
 # A quoi sert un passwordEncoder ?
 
+<div class="full-center">
+    <img src="./assets/images/2_password_encoder/meat-grinder.gif">
+</div>
+
 ##==##
 # Un scénario sans encoder
 <div class="full-center">
