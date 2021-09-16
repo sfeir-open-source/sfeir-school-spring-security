@@ -104,13 +104,222 @@ Authorization vs Authentification
 # Différence entre role, authorization, permission ?
 
 ##==##
-# Les matchers
-- type de matchers (ant, mvc, regex)
-- composition:
-  - choisir une url (anyrequest, antmatcher, etc.)
-  - exemple -> *, **, regex
-  - choisir la restriction (permitAll(), denyAll(), authenticated(), hasRole(), access(), etc)
-- parler de l'ordre -> allez du + spécifique au + general
+# Autoriser ou refuser une requête
+```java
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests();
+    }
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 1. Sélectionner une ou des resources
+
+##==##
+# Autoriser ou refuser une requête
+## 1. Sélectionner n'importe quelle resource
+```java
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .anyRequest();
+    }
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 1. Sélectionner une resource précise
+```java
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource");
+    }
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 1. Sélectionner un ensemble de resources
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/*/a");
+}
+```
+
+##==##
+
+# Autoriser ou refuser une requête
+## 1. Sélectionner un ensemble de resources
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**/a");
+}
+```
+
+##==##
+
+# Autoriser ou refuser une requête
+## 1. Sélectionner une ou des resources liée à une méthode HTTP donnée
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers(HttpMethod.PUT, "/resource/**/a");
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 1. Sélectionner un ensemble de resources avec une regex
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .regexMatchers("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01- \x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e- \x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9- ]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0- 5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01- \x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e- \x7f])+)\])");
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction: accepter tout le monde
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**")
+            .permitAll();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction: refuser tout le monde
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**")
+            .denyAll();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction: accepter les utilisateurs authentifiées
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**")
+            .authenticated();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction: accepter les utilisateurs ayant un certain rôle 
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**")
+            .hasRole("READ");
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction: accepter les utilisateurs ayant certains rôles
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**")
+            .hasAnyRole("READ", "WRITE");
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 2. Appliquer une restriction: appliquer des règles
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource/**")
+            .access("hasRole('READ') and !hasRole('WRITE')");
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 3. Enchaîner les restrictions
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 3. Enchaîner les restrictions
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource1/**").permitAll();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 3. Enchaîner les restrictions
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource1/**").permitAll()
+            .antMatchers("/resource2/**").denyAll();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 3. Enchaîner les restrictions
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource1/**").permitAll()
+            .antMatchers("/resource2/**").denyAll()
+            .anyRequest().authenticated();
+}
+```
+
+##==##
+# Autoriser ou refuser une requête
+## 3. Enchaîner les restrictions
+```java
+    @Override 
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/resource1/**").permitAll()
+            .antMatchers("/resource2/**").denyAll()
+            .anyRequest().authenticated();
+}
+```
+
+## Faire attention à l'ordre!
 
 ##==##
 <!-- .slide: class="exercice" -->
