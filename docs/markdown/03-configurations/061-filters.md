@@ -277,3 +277,28 @@ public class AuthenticationLoggingFilter extends OncePerRequestFilter {
 <div class="full-center">
     <img src="./assets/images/5_filter/filter_9_order.png">
 </div>
+
+<!-- .slide: class="exercice" -->
+# Créer un filtre permettant de gérer des UUID dans les url
+## Exercice 1
+<br>
+On a un serveur qui veut obfusquer ses id 
+<ul>
+<li> lire une requete contenant un uuid</li>
+<li> ajouter un uuid rattaché a un id interne</li>
+</ul>
+
+##==##
+
+<!-- .slide: class="exercice" -->
+# Créer un filtre pour gérer un token en query params
+## Exercice 2
+<br>
+On veut s'interfacer avec une api legacy :
+<ul>
+<li> on reçoit le token en query param</li>
+<li> valider ce token</li>
+<li> utiliser notre propre authentication manager pour token jwt oauth2</li>
+</ul>
+
+##==##

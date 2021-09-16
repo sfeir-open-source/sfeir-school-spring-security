@@ -39,16 +39,16 @@ function configurationSlides() {
     '03-configurations/071-security-context.md',
     '03-configurations/080-form-login-title.md', // TODO to rename (file and string)
     '03-configurations/081-form-login.md', // TODO to rename (file and string)
-    '03-configurations/085-dynamic-form-login.md',
-    '03-configurations/090-access-decision-manager-title.md', // TODO to rename (file and string)
-    '03-configurations/091-access-decision-manager.md' // TODO to rename (file and string)
+    '03-configurations/085-dynamic-form-login.md', // TODO to rename (file and string)
   ]
 }
 
 function oauthSlides() {
   return [
     '05-oauth/00-title.md',
-    '05-oauth/010-oauth2.md'
+    '05-oauth/010-oauth2.md',
+    '03-configurations/090-access-decision-manager-title.md',
+    '03-configurations/091-access-decision-manager.md'
   ]
 }
 
