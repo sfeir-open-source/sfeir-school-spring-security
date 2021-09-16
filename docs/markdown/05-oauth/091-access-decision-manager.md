@@ -1,7 +1,7 @@
 # La brique de décision spring security par vote
 
 <div class="full-center">
-    <img src="./assets/images/08-access-decision-manager/access-decision-voting.png">
+    <img src="assets/images/08-access-decision-manager/access-decision-voting.png">
 </div>
 
 ##==##
@@ -58,6 +58,19 @@ permet de définir si la classe est applicable au ConfigAttribute
 boolean supports(Class clazz);
 ```
 permet de définir si la classe est applicable à l'objet de sécurité(jwt, username/password,...)</li>
+</ul>
+
+##==##
+
+##==##
+<!-- .slide: class="exercice" -->
+# Créer un access decision manager pour routes dynamiques
+## Exercice
+<br>
+En utilisant le RouteProvider fourni dans l'exercice :
+<ul>
+<li>créer un composant qui est capable de déterminer dynamiquement si une route est autorisé</li>
+<li>Une route est défini par un verbe et une uri, associé à un scope donné ( ex GET /toto requiert le scope toto)</li>
 </ul>
 
 ##==##

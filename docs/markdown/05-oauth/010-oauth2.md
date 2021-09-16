@@ -1,5 +1,20 @@
 # Oauth2 : un framework d'autorisation
 
+Oauth 2 est un framework d'autorisation, et non d'authentification
+</br> ==> Ne pas confondre avec OpenID Connect
+
+Une autorisation est défini par les éléments suivants: 
+<ul>
+    <li>un sujet</li>
+    <li>une audience</li>
+    <li>un ou plusieurs scopes</li>
+    <li>une date d'émission</li>
+    <li>une date d'expiration</li>
+    <li>une autorité émettrice</li>
+</ul>
+
+##==##
+
 ## Vocabulaire
 <ul>
     <li class="fragment">Resource Server</li>
@@ -87,5 +102,30 @@ Un jwt peut aussi être signé et/out chiffré.</li>
     <img src="./assets/images/7-oauth2/oauth-flow2.png">
 </div>
 
+##==##
+
+<!-- .slide: class="exercice" -->
+# Créer un serveur de ressource oauth2
+## Exercice 1 
+<br>
+Créer un serveur de ressource exposant 3 API:
+<ul>
+<li> une api publique</li>
+<li> une api authentifié</li>
+<li> une api nécessitant un scope admin</li>
+</ul>
 
 ##==##
+<!-- .slide: class="exercice" -->
+# Créer un serveur de d'autorisation oauth2
+## Exercice 2
+<br>
+Créer un serveur d'autorisation:
+<ul>
+<li> capable d'emettre des token client_credentials</li>
+
+</ul>
+
+##==##
+
+
