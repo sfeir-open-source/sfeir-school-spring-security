@@ -5,64 +5,716 @@
 </div>
 
 ##==##
-# Définitions
+# AuthenticationManager
 
-* logique d'authentification -> comment on s'authentifie ?
-* authentication provider -> code qui permet de dire si une requête est ok
-* authenticationManager -> choisit le bon provider depuis le filter
-* custom auth logic -> plusieurs scénarios (différents mode de connexion géré par une appli)
-* default authprovider -> login/password and use UserDetailsService to find user and PasswordEncoder to manage password
-* chaine de responsabilité (authmanager)
-
-##==##
-# Comment ça fonctionne ?
-TODO ajouter schémas (exemple clé/ carte)
+<ul>
+    <li class="fragment">Reçoit la requête depuis le filtre...</li>
+    <li class="fragment">...puis choisit le provider correspondant</li>
+    <li class="fragment">Pattern chaîne de responsabilités</li>
+</ul>
 
 ##==##
-# Comment Spring Security represente l'evenement d'authentification
-TODO -> schema avec le principal et l'auth qui l'hérite
+# AuthenticationProvider
 
-TODO en note, expliquer la diff entre principal et userdetails
-
-##==##
-# Quelques classes qui implementent Authentication
-TODO ajouter liste (loginpassword, oauth2, ldap, jwt, etc.)
-
-##==##
-# Un peu de code: l'interface AuthenticationProvider
-TODO ajouter code snippet
-
-authenticate() method:
-* AuthenticationException
-* if null returned -> not supported by this authprovider
-* if param is a principal fully auth -> auth param isauth -> true
-* no password or sensitive data stored
-
-supports() method: 
-* returns true if the auth object is supported
-* to be supported, must return true and authenticate must not return null
+<ul>
+    <li class="fragment">Indique s'il peut traiter ou non une requête</li>
+    <li class="fragment">Logique d'authentification</li>
+    <li class="fragment">Par défaut -> login/password</li>
+</ul>
 
 ##==##
-# Comment ca fonctionne ?
-TODO reprendre schéma mais avec supports(), authenticate(), etc.
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_1.png">
+</div>
 
-# Ajouter un authprovider
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_2.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_3.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_4.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_5.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_6.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_7.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_8.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_9.png">
+</div>
+
+##==##
+# L'évènement d'authentification
+
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+}
+```
+
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+  Object getCredentials();
+}
+```
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+  Object getCredentials();
+  Collection<? extends GrantedAuthority> getAuthorities();
+}
+```
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+  Object getCredentials();
+  Collection<? extends GrantedAuthority> getAuthorities();
+  Object getPrincipal();
+}
+```
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+  Object getCredentials();
+  Collection<? extends GrantedAuthority> getAuthorities();
+  Object getPrincipal(); 
+  boolean isAuthenticated();
+}
+```
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+  Object getCredentials();
+  Collection<? extends GrantedAuthority> getAuthorities();
+  Object getPrincipal(); 
+  boolean isAuthenticated();
+  void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException;
+}
+```
+##==##
+# L'évènement d'authentification
+<br>
+
+## Principal
+```java
+public interface Principal {
+    String getName();
+}
+```
+
+<br>
+
+## Authentication
+```java
+
+public interface Authentication extends Principal, Serializable {
+  Object getCredentials();
+  Collection<? extends GrantedAuthority> getAuthorities();
+  Object getPrincipal(); 
+  boolean isAuthenticated();
+  void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException;
+  Object getDetails();
+}
+```
+
+##==##
+# L'interface AuthenticationProvider
+
+```java
+public interface AuthenticationProvider {
+}
+```
+
+##==##
+# L'interface AuthenticationProvider
+
+```java
+public interface AuthenticationProvider {
+  Authentication authenticate(Authentication authentication) throws AuthenticationException;
+}
+```
+
+##==##
+# L'interface AuthenticationProvider
+
+```java
+public interface AuthenticationProvider {
+  Authentication authenticate(Authentication authentication) throws AuthenticationException;
+  boolean supports(Class<?> authentication);
+}
+```
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_1.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_2.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_3.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_4.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_5.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_6.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_7.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_8.png">
+</div>
+
+##==##
+# Choisir une manière de s'authentifier
+<div class="full-center">
+    <img src="./assets/images/3_authentication_provider/multiple_authentications_completed_9.png">
+</div>
+
+
+##==##
+# Créer un provider custom
+```java
+public class CustomAuthenticationProvider {
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider {
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+        }
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+            if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+            }
+        }
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+            if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+                return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+            }
+        }
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+            if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+                return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+            } else {
+                throw new BadCredentialsException("Authentication failed!");
+            }
+        }
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+            if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+                return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+            } else {
+                throw new BadCredentialsException("Authentication failed!");
+            }
+        } else {
+            return null;
+        }
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+            if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+                return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+            } else {
+                throw new BadCredentialsException("Authentication failed!");
+            }
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+    }
+}
+```
+
+##==##
+# Créer un provider custom
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (authenticationReliesOnAThirdPartySystem()) {
+            if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+                return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+            } else {
+                throw new BadCredentialsException("Authentication failed!");
+            }
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
+    }
+}
+```
+
+##==##
+# Créer un provider custom: refactorons!
+```java
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String name = authentication.getName();
+        String password = authentication.getCredentials().toString();
+        AdditionalDetails additionalDetails = (AdditionalDetails) authentication.getDetails();
+        
+        if (!authenticationReliesOnAThirdPartySystem()) {
+            return null;
+        }
+
+        if (thirdPartyApprovesAuthentication(name, password, additionalDetails)) {
+            return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+        }
+        throw new BadCredentialsException("Authentication failed!");
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
+    }
+}
+```
+
+##==##
+# Ajouter le provider
 ```java
 @Configuration
-public class ProjectConfig extends WebSecurityConfigurerAdapter {
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+    
   @Autowired
-  private AuthenticationProvider authenticationProvider;
+  private CustomAuthenticationProvider customAuthenticationProvider;
+  
   @Override
   protected void configure(AuthenticationManagerBuilder auth) {
-    auth.authenticationProvider(authenticationProvider);
+    auth.authenticationProvider(customAuthenticationProvider);
   }
   // ...
 }
 ```
 
 ##==##
-# Créer un provider custom (exercice ?)
+# Ajouter plusieurs providers
+```java
+@Configuration
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+  
+  //...
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) {
+  }
+  // ...
+}
+```
 
-##==## 
-# Exercice -> custom authenticationProvider
+##==##
+# Ajouter plusieurs providers
+```java
+@Configuration
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+    
+  @Autowired
+  private AuthenticationProvider1 provider1;
+  
+  //...
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) {
+    auth.authenticationProvider(provider1);
+  }
+  // ...
+}
+```
 
+##==##
+# Ajouter plusieurs providers
+```java
+@Configuration
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+    
+  @Autowired
+  private AuthenticationProvider1 provider1;
+
+  @Autowired
+  private AuthenticationProvider2 provider2;
+  
+  //...
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) {
+    auth.authenticationProvider(provider1)
+        .authenticationProvider(provider2);
+  }
+  // ...
+}
+```
+
+##==##
+# Ajouter plusieurs providers
+```java
+@Configuration
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
+    
+  @Autowired
+  private AuthenticationProvider1 provider1;
+
+  @Autowired
+  private AuthenticationProvider2 provider2;
+
+  @Autowired
+  private AuthenticationProvider3 provider3;
+  
+  //...
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) {
+    auth.authenticationProvider(provider1)
+        .authenticationProvider(provider2)
+        .authenticationProvider(provider3);
+  }
+  // ...
+}
+```
+
+##==##
+# Quelques classes qui implémentent AuthenticationProvider
+<ul>
+    <li class="fragment">DaoAuthenticationProvider</li>
+    <li class="fragment">OAuth2LoginAuthenticationProvider</li>
+    <li class="fragment">LdapAuthenticationProvider</li>
+</ul>
+
+##==##
+# Quelques classes qui implémentent AuthenticationProvider
+<ul>
+    <li>DaoAuthenticationProvider</li>
+    <li>OAuth2LoginAuthenticationProvider</li>
+    <li>LdapAuthenticationProvider</li>
+</ul>
+
+Javadoc: https://docs.spring.io/spring-security/site/docs/4.0.x/apidocs/org/springframework/security/authentication/AuthenticationProvider.html

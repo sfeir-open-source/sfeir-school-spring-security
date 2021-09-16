@@ -216,7 +216,7 @@ public class CustomFilter implements Filter {
 
 ```java
 @Configuration
-public class ProjectConfig extends WebSecurityConfigurerAdapter {
+public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
