@@ -131,15 +131,6 @@ En plus du nom de l'utilisateur, afficher son/ses role(s)
 </div>
 
 ##==##
-# Définitions
-Authorization vs Authentification
-- definition générale
-- exemple (+ schéma ?)
-
-##==##
-# Différence entre role, authorization, permission ?
-
-##==##
 # Autoriser ou refuser une requête
 ```java
     @Override
