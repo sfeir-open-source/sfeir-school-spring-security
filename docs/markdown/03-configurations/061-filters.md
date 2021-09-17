@@ -233,7 +233,7 @@ public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
 <ul>
     <li class="fragment">Une seule fois par requête</li>
-    <li class="fragment">Les requêtes sont en HTTP</i></li>
+    <li class="fragment">Les requêtes sont en HTTP</li>
     <li class="fragment">Surcharge de méthodes (exemple: shouldNotFilter(HttpServletRequest))</li>
 </ul>
 
@@ -262,7 +262,7 @@ public class AuthenticationLoggingFilter extends OncePerRequestFilter {
     }
 }
 ```
-
+<b>Important : Ne jamais oublier la ligne filterChain.doFilter(request, response)</b>
 
 ##==##
 # Ordre des filtres
@@ -277,6 +277,8 @@ public class AuthenticationLoggingFilter extends OncePerRequestFilter {
 <div class="full-center">
     <img src="./assets/images/5_filter/filter_9_order.png">
 </div>
+
+##==##
 
 <!-- .slide: class="exercice" -->
 # Créer un filtre permettant de gérer des UUID dans les url
