@@ -92,7 +92,43 @@ En plus du nom de l'utilisateur, afficher son/ses role(s)
 ## Sécuriser nos mots de passe
 
 ##==##
-# Les rôles
+# Définition: Authentification et Authorisation
+
+##==##
+# Définition: Authentification
+<div class="full-center">
+    <img src="./assets/images/0_creation_project/authentication_authorization_1.png">
+</div>
+
+##==##
+# Définition: Authentification
+<div class="full-center">
+    <img src="./assets/images/0_creation_project/authentication_authorization_2.png">
+</div>
+
+##==##
+# Définition: Authentification
+<div class="full-center">
+    <img src="./assets/images/0_creation_project/authentication_authorization_3.png">
+</div>
+
+##==##
+# Définition: Autorisations
+<div class="full-center">
+    <img src="./assets/images/0_creation_project/authentication_authorization_4.png">
+</div>
+
+##==##
+# Définition: Autorisations
+<div class="full-center">
+    <img src="./assets/images/0_creation_project/authentication_authorization_5.png">
+</div>
+
+##==##
+# Définition: Autorisations
+<div class="full-center">
+    <img src="./assets/images/0_creation_project/authentication_authorization_6.png">
+</div>
 
 ##==##
 # Définitions
