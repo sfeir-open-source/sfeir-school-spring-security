@@ -282,25 +282,19 @@ public class AuthenticationLoggingFilter extends OncePerRequestFilter {
 
 <!-- .slide: class="exercice" -->
 # Créer un filtre permettant de gérer des UUID dans les url
-## Exercice 1
+## Exercice
 <br>
-On a un serveur qui veut obfusquer ses id 
+On a un serveur qui veut obfusquer ses id internes ( ex open banking ) :
 <ul>
-<li> lire une requete contenant un uuid</li>
-<li> ajouter un uuid rattaché a un id interne</li>
+<li> lire une requete contenant un uuid et transformer en id</li>
+<li> générer un uuid rattaché à un id interne</li>
 </ul>
 
-##==##
-
-<!-- .slide: class="exercice" -->
-# Créer un filtre pour gérer un token en query params
-## Exercice 2
 <br>
-On veut s'interfacer avec une api legacy :
+Objectif de l'exercice :
 <ul>
-<li> on reçoit le token en query param</li>
-<li> valider ce token</li>
-<li> utiliser notre propre authentication manager pour token jwt oauth2</li>
+<li> créér un filtre qui gère ce problème</li>
+<li> injecter ce filtre dans la configuration spring security</li>
 </ul>
 
 ##==##

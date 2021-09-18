@@ -3,29 +3,22 @@
 Oauth 2 est un framework d'autorisation, et non d'authentification
 </br> ==> Ne pas confondre avec OpenID Connect
 
+Source : https://datatracker.ietf.org/doc/html/rfc6749
+
 Une autorisation est défini par les éléments suivants: 
 <ul>
-    <li>un sujet</li>
-    <li>une audience</li>
-    <li>un ou plusieurs scopes</li>
-    <li>une date d'émission</li>
-    <li>une date d'expiration</li>
-    <li>une autorité émettrice</li>
+    <li class="fragment">un sujet</li>
+    <li class="fragment">une audience</li>
+    <li class="fragment">un ou plusieurs scopes</li>
+    <li class="fragment">une date d'émission</li>
+    <li class="fragment">une date d'expiration</li>
+    <li class="fragment">une autorité émettrice</li>
 </ul>
+
 
 ##==##
-
-## Vocabulaire
-<ul>
-    <li class="fragment">Resource Server</li>
-    <li class="fragment">Authorization Server</li>
-    <li class="fragment">Client</li>
-    <li class="fragment">Resource Owner</li>
-    <li class="fragment">Scopes</li>
-    <li class="fragment">Jwt</li>
-</ul>
-
-Source : https://datatracker.ietf.org/doc/html/rfc6749
+<!-- .slide: class="transition underline" -->
+# Vocabulaire
 
 ##==##
 
@@ -108,24 +101,11 @@ Un jwt peut aussi être signé et/out chiffré.</li>
 # Créer un serveur de ressource oauth2
 ## Exercice 1 
 <br>
-Créer un serveur de ressource exposant 3 API:
+Créer un serveur de ressource oauth2 exposant 3 API:
 <ul>
 <li> une api publique</li>
 <li> une api authentifié</li>
 <li> une api nécessitant un scope admin</li>
 </ul>
-
-##==##
-<!-- .slide: class="exercice" -->
-# Créer un serveur de d'autorisation oauth2
-## Exercice 2
-<br>
-Créer un serveur d'autorisation:
-<ul>
-<li> capable d'emettre des token client_credentials</li>
-
-</ul>
-
-##==##
 
 
