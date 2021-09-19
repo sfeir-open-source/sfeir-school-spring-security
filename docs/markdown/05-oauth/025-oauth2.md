@@ -88,6 +88,13 @@ Un jwt peut aussi être signé et/out chiffré.</li>
 
 ##==##
 
+# Jwt Signé
+En général les Jwt sont signé par une clé RSA. On trouvera un champ kid dans le header déterminant la clé utilisé
+
+Les clés sont exposés via un format appelé JWK
+
+##==##
+
 
 # Oauth2 flow
 

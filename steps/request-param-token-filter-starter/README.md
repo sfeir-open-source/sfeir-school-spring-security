@@ -3,6 +3,7 @@
 Créer un filtre permettant de recevoir un token en query params et non dans le header Authorization.
 De plus, on veut procéder manuellement à la validation de nos tokens. On va donc :
 - créér un AuthenticationProvider custom, celui-ci devra être capable de recevoir un token oauth2
+- utiliser un AuthenticationToken fourni et à compléter pour gérer notre token et sa validation
 - récupérer la clé de signature
 - valider cette signature et vérifier que le token n'est pas expiré
 
