@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.sfeir</groupId>
-	<artifactId>spring-security-school-oauth2-resource-server-solution</artifactId>
+	<artifactId>spring-security-school-oauth2-resource-server-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security-school-resource-server-solution</name>
+	<name>spring-security-school-resource-server-starter</name>
 	<description>resource server for spring security school</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -55,10 +55,6 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.12.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
 	</dependencies>
 

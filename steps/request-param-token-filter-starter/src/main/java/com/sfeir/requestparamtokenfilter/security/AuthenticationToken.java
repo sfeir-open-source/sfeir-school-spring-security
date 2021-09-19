@@ -1,4 +1,4 @@
-package com.sfeir.requestparamtokenfilter.exception;
+package com.sfeir.requestparamtokenfilter.security;
 
 import com.sfeir.requestparamtokenfilter.service.jwk.Jwk;
 import io.jsonwebtoken.*;
@@ -48,17 +48,10 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
   }
 
   public void verifyToken(Jwk key) {
-    try {
-      jwt = Jwts.parserBuilder().setSigningKey(getRsaPublicKey(key)).build().parseClaimsJws(token);
-    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-      throw new TokenAuthenticationException("Can't verify signature of token", e);
-    }
+      //TODO utiliser la classe Jwts pour valider la signature
   }
 
   public void checkIfExpired() {
-    if (jwt.getBody().getExpiration().before(new Date())) {
-      throw new ExpiredTokenException("Token expired since " + jwt.getBody().getExpiration());
-    }
   }
 
   /**

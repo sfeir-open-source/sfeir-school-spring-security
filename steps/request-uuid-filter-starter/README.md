@@ -1,18 +1,18 @@
 # Tâche à réaliser
 
-Créer un serveur de ressource avec permettant de gérer des accès dynamiques. On utilisera un custom access decision
-manager. Sont fourni, un controller de test et un service RouteProvider permettant d'enregister/chercher une route et
-son scope
+Créer un filtre permettant de gérer des requetes uudifié. Pour cela un UuidLookUpService est fourni
+- Créer un filtre
+- Ajouter le filtre dans la config spring security
+- Utiliser le controller fourni dans le starter
+- un uuid existe dans le code en dur : 
+bb829bb5-a46a-42f6-bc35-03b942b4ad68 pour la param name avec la valeur toto
 
 # Tips
 
-Ci-joint la requete postman pour générer une autorisation
+Ci-dessous la signature du service de gestion d'uuid, une méthode permet de dé-uuidifer la requete. une autre permet d'ajouter des couples
+uuid/id
 
-```
-curl --location --request POST 'https://dev-56443628.okta.com/oauth2/aus1nztlwsqX4tYHg5d7/v1/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=0oa1nzz7bmhQ2bsBJ5d7' \
---data-urlencode 'client_secret=Gfyol4hSu0PkO-T9y2eNGU7f1kjr4Kk_NPgRJZAD' \
---data-urlencode 'scope=<scope requis>'
+```java
+    public String addValue(String name,String value)
+public URI unuuidify(UriTemplate uriTemplate,String uri)
 ```

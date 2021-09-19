@@ -1,6 +1,5 @@
 package com.sfeir.requestparamtokenfilter.security;
 
-import com.sfeir.requestparamtokenfilter.exception.AuthenticationToken;
 import com.sfeir.requestparamtokenfilter.exception.ExpiredTokenException;
 import com.sfeir.requestparamtokenfilter.exception.KeyException;
 import com.sfeir.requestparamtokenfilter.exception.TokenAuthenticationException;
@@ -10,8 +9,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
-
-import java.text.ParseException;
 
 @Service
 public class TokenAuthenticationProvider implements AuthenticationProvider {

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.sfeir.school.spring.security</groupId>
-	<artifactId>custom-access-decision-manager-solution</artifactId>
+	<artifactId>custom-access-decision-manager-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security-custom-access-decision-manager-solution</name>
+	<name>spring-security-custom-access-decision-manager-starter</name>
 	<description>custom-access-decision-manager for spring security school</description>
 	<properties>
 		<java.version>1.8</java.version>

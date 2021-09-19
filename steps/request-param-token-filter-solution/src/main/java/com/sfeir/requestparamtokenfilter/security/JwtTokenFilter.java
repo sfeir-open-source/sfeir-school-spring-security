@@ -1,6 +1,5 @@
 package com.sfeir.requestparamtokenfilter.security;
 
-import com.sfeir.requestparamtokenfilter.exception.AuthenticationToken;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

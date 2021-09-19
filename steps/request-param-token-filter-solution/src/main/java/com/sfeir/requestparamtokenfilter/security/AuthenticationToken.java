@@ -1,5 +1,7 @@
-package com.sfeir.requestparamtokenfilter.exception;
+package com.sfeir.requestparamtokenfilter.security;
 
+import com.sfeir.requestparamtokenfilter.exception.ExpiredTokenException;
+import com.sfeir.requestparamtokenfilter.exception.TokenAuthenticationException;
 import com.sfeir.requestparamtokenfilter.service.jwk.Jwk;
 import io.jsonwebtoken.*;
 import lombok.SneakyThrows;

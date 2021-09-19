@@ -1,8 +1,12 @@
 # Tâche à réaliser
 
-Créer un serveur de ressource avec permettant de gérer des accès dynamiques. On utilisera un custom access decision
-manager. Sont fourni, un controller de test et un service RouteProvider permettant d'enregister/chercher une route et
-son scope
+Créer un filtre permettant de recevoir un token en query params et non dans le header Authorization.
+De plus, on veut procéder manuellement à la validation de nos tokens. On va donc :
+- créér un AuthenticationProvider custom, celui-ci devra être capable de recevoir un token oauth2
+- récupérer la clé de signature
+- valider cette signature et vérifier que le token n'est pas expiré
+
+L'exercice fourni un JwkService pour récupérer la clé publique du token.
 
 # Tips
 
