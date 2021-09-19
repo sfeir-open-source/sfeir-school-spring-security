@@ -1,0 +1,12 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-56443628.okta.com/oauth2/aus1nztlwsqX4tYHg5d7
+server:
+  port: 8444
+
+logging:
+    level:
+      root: debug
