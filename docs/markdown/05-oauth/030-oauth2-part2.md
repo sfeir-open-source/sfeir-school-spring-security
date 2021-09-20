@@ -29,7 +29,7 @@ Créer un serveur d'autorisation:
 Objectif de l'exercice :
 <ul>
 <li>créer un serveur d'autorisation</li>
-<li>découvrir </li>
+<li>découvrir comment faire un serveur d'autorisation avec spring security</li>
 </ul>
 
 ##==##

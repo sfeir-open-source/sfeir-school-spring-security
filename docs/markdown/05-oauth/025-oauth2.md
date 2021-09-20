@@ -47,6 +47,15 @@ L'utilisateur ou application qui possède les ressources que l'on veut sécurise
 Il peut donner un consentement pour accéder à ces données
 ##==##
 
+# Récapitulatif
+
+<div class="full-center">
+    <img src="assets/images/7-oauth2/oauth2-parts.png">
+</div>
+
+##==##
+
+
 # Scopes
 
 Dans le jargon oauth2, un scope = un droit/role.
@@ -75,6 +84,7 @@ Cf RFC rfc7519 ==> https://datatracker.ietf.org/doc/html/rfc7519
 <div class="full-center">
     <img src="./assets/images/7-oauth2/jwt-decoded.png">
 </div>
+
 ##==##
 
 # Jwt
@@ -89,9 +99,12 @@ Un jwt peut aussi être signé et/out chiffré.</li>
 ##==##
 
 # Jwt Signé
-En général les Jwt sont signé par une clé RSA. On trouvera un champ kid dans le header déterminant la clé utilisé
+En général, les Jwt sont signé par une clé RSA(clé publique/privé).
+On trouvera un champ kid dans le header du token déterminant la clé utilisé pour la signature.
 
-Les clés sont exposés via un format appelé JWK
+Un serveur d'autorisation expose ses clés via un format appelé JWK
+<br/>
+Le serveur de ressource récupére ces clés pour tenter de valider le token
 
 ##==##
 
