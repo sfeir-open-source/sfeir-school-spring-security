@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "3332073c-1807-4cf4-8e61-3a0110517712",
+		"name": "sfeir school",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "0oa1nzz7bmhQ2bsBJ5d7",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "Gfyol4hSu0PkO-T9y2eNGU7f1kjr4Kk_NPgRJZAD",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev-56443628.okta.com/oauth2/aus1nztlwsqX4tYHg5d7/v1/token",
+					"protocol": "https",
+					"host": [
+						"dev-56443628",
+						"okta",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"aus1nztlwsqX4tYHg5d7",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

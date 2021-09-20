@@ -34,7 +34,77 @@ Exemples de Voter par défaut
 <ul>
     <li class="fragment">AuthenticatedVoter, différencie entre user anonyme, authentifié, remember-me users, ...</li>
     <li class="fragment">RoleVoter, autorise/refuse sur la présence d'un attribut role.</li>
+    <li class="fragment">Et bien d'autres, qui s'applique à des cas spécifiques ou complexes</li>
 </ul>
+
+##==##
+
+# Voters : cas du user anonyme
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests()
+        .anyRequest()
+        .authenticated();
+}
+```
+
+<div class="full-center">
+    <img src="assets/images/08-access-decision-manager/blank-decision.png">
+</div>
+
+##==##
+
+
+# Voters : cas du user anonyme
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception{
+  http.authorizeRequests()
+  .anyRequest()
+  .authenticated();
+  }
+```
+
+<div class="full-center">
+    <img src="assets/images/08-access-decision-manager/anonyme.png">
+</div>
+
+##==##
+
+# Voters : cas du user qui accède une ressource derrière un role
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests()
+        .anyRequest()
+        .hasRole("read");
+}
+```
+
+<div class="full-center">
+    <img src="assets/images/08-access-decision-manager/blank-decision.png">
+</div>
+
+##==##
+
+# Voters : cas du user qui accède une ressource derrière un role
+
+```java
+@Override
+protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests()
+        .anyRequest()
+        .hasRole("read");
+}
+```
+
+<div class="full-center">
+    <img src="assets/images/08-access-decision-manager/role.png">
+</div>
 
 ##==##
 
