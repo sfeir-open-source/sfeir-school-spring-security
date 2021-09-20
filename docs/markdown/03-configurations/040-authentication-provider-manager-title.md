@@ -1,3 +1,3 @@
 <!-- .slide: class="transition underline" -->
 
-# 5. Authentication manager
+# 4. Auth. provider / manager

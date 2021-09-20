@@ -262,4 +262,4 @@ public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
 # Récupérer les utilisateurs
 ## Exercice 3
 <br>
-Utiliser la brique "custom" de Spring Security pour récupérer nos utilisateurs.
+Utiliser la brique "custom" de Spring Security pour récupérer les utilisateurs.

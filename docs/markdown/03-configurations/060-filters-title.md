@@ -1,3 +1,3 @@
 <!-- .slide: class="transition underline" -->
 
-# 6. Filtres
+# 5. Filtres

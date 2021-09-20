@@ -296,5 +296,3 @@ Objectif de l'exercice :
 <li> créér un filtre qui gère ce problème</li>
 <li> injecter ce filtre dans la configuration spring security</li>
 </ul>
-
-##==##

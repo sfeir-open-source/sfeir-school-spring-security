@@ -29,17 +29,15 @@ function configurationSlides() {
     '03-configurations/021-user-management.md',
     '03-configurations/030-password-management-title.md',
     '03-configurations/031-password-management.md',
-    '03-configurations/040-authentication-provider-title.md',
-    '03-configurations/041-authentication-provider.md',
-    '03-configurations/050-authentication-manager-title.md',
-    '03-configurations/051-authentication-manager.md',
-    '03-configurations/060-filters-title.md', // TODO to rename (file and string)
-    '03-configurations/061-filters.md', // TODO to rename (file and string)
+    '03-configurations/040-authentication-provider-manager-title.md',
+    '03-configurations/041-authentication-provider-manager.md',
+    '03-configurations/060-filters-title.md',
+    '03-configurations/061-filters.md',
     '03-configurations/070-security-context-title.md',
     '03-configurations/071-security-context.md',
-    '03-configurations/080-form-login-title.md', // TODO to rename (file and string)
-    '03-configurations/081-form-login.md', // TODO to rename (file and string)
-    '03-configurations/085-dynamic-form-login.md', // TODO to rename (file and string)
+    '03-configurations/080-form-login-title.md',
+    '03-configurations/081-form-login.md',
+    '03-configurations/085-dynamic-form-login.md',
   ]
 }
 

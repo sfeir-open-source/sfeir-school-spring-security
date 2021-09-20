@@ -1,3 +1,3 @@
 <!-- .slide: class="transition underline" -->
 
-# 7. Security context
+# 6. Security context
