@@ -57,16 +57,37 @@ Où le trouver ?
 ## Dans cette démo on va:
 
 <ol>
-    <li class="fragment">Sécuriser notre application</li>
+    <li class="fragment">Ajouter Spring Security</li>
     <li class="fragment">Ajouter un formulaire de login - se logguer, délogguer</li>
     <li class="fragment">Afficher le nom de l'utilisateur connecté</li>
     <li class="fragment">Configurer nos utilisateurs</li>
+    <li class="fragment">Se connecter via OAuth2</li>
     <li class="fragment">Sécuriser nos mots de passe</li>
 </ol>
 
 ##==##
 # Démo: configurons un peu Spring Security
-## Sécuriser notre application
+## Ajouter Spring Security
+
+##==##
+# Démo: configurons un peu Spring Security
+## Ajouter Spring Security
+### Takeaway
+
+<ol>
+  <li class="fragment">Comportement par défaut</li>
+  <ol>
+    <li class="fragment">Resources sécurisées</li>
+    <li class="fragment">Utilisateur avec mot de passe généré</li>
+  </ol>
+  <li class="fragment">Configuration</li>
+  <ol>
+    <li class="fragment">WebSecurityConfigurerAdapter</li>
+    <li class="fragment">configure(HttpSecurity http)</li>
+    <li class="fragment">http.httpBasic()</li>
+    <li class="fragment">http.authorizeRequest()</li>
+  </ol>
+</ol>
 
 ##==##
 # Démo: configurons un peu Spring Security
@@ -74,7 +95,25 @@ Où le trouver ?
 
 ##==##
 # Démo: configurons un peu Spring Security
+## Ajouter un formulaire de login - se logguer, délogguer
+### Takeaway
+<ol>
+  <li class="fragment">http.formLogin()</li>
+  <li class="fragment">se délogguer via /logout</li>
+</ol>
+
+##==##
+# Démo: configurons un peu Spring Security
 ## Afficher le nom de l'utilisateur connecté
+
+##==##
+# Démo: configurons un peu Spring Security
+## Afficher le nom de l'utilisateur connecté
+### Takeaway
+<ol>
+  <li class="fragment">Injection dans le controller</li>
+  <li class="fragment">Principal, Authentication ou UsernamePasswordAuthenticationToken</li>
+</ol>
 
 ##==##
 <!-- .slide: class="exercice" -->
@@ -86,10 +125,140 @@ En plus du nom de l'utilisateur, afficher son/ses role(s)
 ##==##
 # Démo: configurons un peu Spring Security
 ## Configurer nos utilisateurs
+### Prérequis
+
+##==##
+# Démo: configurons un peu Spring Security
+## Configurer nos utilisateurs
+### Prérequis: configurer h2
+```yaml
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sfeir
+    password: school
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+```
+
+##==##
+# Démo: configurons un peu Spring Security
+## Configurer nos utilisateurs
+### Prérequis: ajouter quelques utilisateurs
+```sql
+INSERT INTO SCHOOL_USER (name, role, password, enabled) VALUES
+('admin', 'ADMIN', 'admin', true),
+('tutor', 'SFEIR', 'sfeir', true),
+('student', 'VISITOR', 'student', true),
+('disabled_user', 'VISITOR', 'abc', false);
+```
+
+##==##
+# Démo: configurons un peu Spring Security
+## Configurer nos utilisateurs
+### Prérequis: voir la console h2
+```java
+http
+  .csrf()
+  .disable()
+  .headers()
+  .frameOptions()
+  .sameOrigin()
+  // ...
+  .antMatchers("/h2-console/**").permitAll()
+  // ...
+```
+
+##==##
+# Démo: configurons un peu Spring Security
+## Configurer nos utilisateurs
+### Takeaway
+<ol>
+  <li class="fragment">Lier avec les utilisateurs en base de données</li>
+  <ol>
+    <li class="fragment">configure(AuthenticationManagerBuilder auth)</li>
+    <li class="fragment">JdbcUserDetailsManager</li>
+  </ol>
+  <li class="fragment">Comptes utilisateurs désactivés</li>
+  <li class="fragment">Plus d'utilisateur généré!</li>
+</ol>
+
+##==##
+# Démo: configurons un peu Spring Security
+## Se connecter via OAuth2
+### Prérequis
+
+##==##
+# Démo: configurons un peu Spring Security
+## Se connecter via OAuth2
+### Prérequis: créer un clientId/secret
+```yaml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: <client-id>
+            clientSecret: <client-secret>
+```
+
+##==##
+# Démo: configurons un peu Spring Security
+## Se connecter via OAuth2
+### Takeaway
+<ol>
+  <li class="fragment">spring-boot-starter-oauth2-client</li>
+  <li class="fragment">client-id et client-secret</li>
+  <li class="fragment">oauth2Login()</li>
+  <li class="fragment">OAuth2AuthenticationToken et OAuth2User</li>
+</ol>
 
 ##==##
 # Démo: configurons un peu Spring Security
 ## Sécuriser nos mots de passe
+### Prérequis
+
+##==##
+# Démo: configurons un peu Spring Security
+## Sécuriser nos mots de passe
+### Prérequis: changer le schéma de la base
+```sql
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(250) NOT NULL,
+  `enabled` INT NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE IF NOT EXISTS `authorities` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `authority` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
+```
+
+##==##
+# Démo: configurons un peu Spring Security
+## Sécuriser nos mots de passe
+### Takeaway
+<ol>
+  <li class="fragment">PasswordEncoder</li>
+  <ol>
+    <li class="fragment">Bean PasswordEncoder</li>
+    <li class="fragment">encoder.encode()</li>
+  </ol>
+  <li class="fragment">UserDetailsManager</li>
+  <ol>
+    <li class="fragment">JdbcUserDetailsManager: moins de code pour gérer les utilisateurs</li>
+    <li class="fragment">manager.createUser(new User(...))</li>
+  </ol>
+</ol>
 
 ##==##
 # Définition: Authentification et Authorisation
