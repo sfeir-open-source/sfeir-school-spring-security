@@ -522,31 +522,4 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 # Restreindre l'accès à des ressources
 ## Exercice 2
 <br>
-Dans la classe SchoolSecurityConfigurer de l'exercice 2, faire chacun des TODO
-
-```java
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .anyRequest()
-                .denyAll();
-        // TODO 1. l'url /public est accessible par tout le monde (authentifié ou non)
-        // TODO 2. l'url /anonyme est accessible par tout le monde, à condition d'être authentifié
-        // TODO 3. l'url /private n'est accessible que par les utilisateurs authentifiés et ayant un rôle ADMIN ou SFEIR
-        // TODO 4. l'url /forbidden et /access-denied ne sont accessibles par personne
-        // TODO 5. les urls commencant par /admin sont accessibles seulement par les utilisateurs ayant le rôle ADMIN...
-        // TODO 6. ... sauf si l'url contient forbidden, dans ce cas elle est inaccessible (ex: admin/a/forbidden/b/c)
-        // TODO 6. les urls commencant par /sfeir sont accessible par les utilisateurs ayant un rôle ADMIN ou SFEIR...
-        // TODO 7. ... sauf si elles commencent par /sfeir/special: elles sont accessibles seulement par les utilisateur SFEIR mais pas les utilisateurs ADMIN
-        // TODO 8. les urls contenant les codes us, au, ca ou uk sont visibles par tout le monde (par exemple /resource/us/view ou /uk/a/b/c)
-        // TODO 9. les resources dont:
-        // TODO    - l'url commence par /resource/sensitive,
-        // TODO    - le chemin a pour taille 3 (exemple: s'applique à /resource/sensitive/exemple mais pas à /resource/sensitive ou à /resource/sensitive/test1/test2)
-        // TODO    - la methode HTTP est POST
-        // TODO ne sont pas accessibles
-        // TODO 10. Toute les autres requêtes sont accessibles pour les personnes authentifiés
-    }
-```
-<br>
-Conseil: faite attention à l'ordre de vos filtres ;)
+Ajouter l'ensemble des restrictions demandées, que vous trouverez dans le README de l'exercice 2.

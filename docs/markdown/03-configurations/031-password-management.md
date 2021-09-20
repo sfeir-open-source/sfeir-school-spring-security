@@ -327,23 +327,23 @@ public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
 ##==##
 <!-- .slide: class="exercice" -->
-# Mettre à jour les mots de passe
+# Mettre à jour des mots de passe
 ## Exercice 4
 <br>
 Tout nos mots de passe sont enregistrés en clair dans la base de données.
 
-Après que le responsable sécurité ai été viré, on souhaite maintenant les hacher sans avoir à en avertir les utilisateurs (que penserons t-il s'ils savaient que leurs mot de passes étaient stockés en clair?).
+On souhaite maintenant les hacher sans avoir à en avertir les utilisateurs (que penseraient-t-ils s'ils savaient que leurs mots de passe étaient stockés en clair ?).
 
-On utilisera Pbkdf2PasswordEncoder avec les paramètres suivant:
+On utilisera Pbkdf2PasswordEncoder avec les paramètres suivants:
 - "secret" comme secret
 - 10000 itérations
 - 128 comme longueur du hash
 
-### Bonus: Utiliser DelegatingPasswordEncoder et ajouter BCryptEncoder et ScryptEncoder, avec Pbkdf2PasswordEncoder par défaut
+Mettez à jour ces mots de passes.
 
 ##==##
 <!-- .slide: class="exercice" -->
 # Faille de sécurité
 ## Question
 <br>
-Quelle faille de sécurité s'est glissée dans l'exercice précédent ?
+Quelle faille de sécurité s'est glissée dans la solution de l'exercice précédent ?

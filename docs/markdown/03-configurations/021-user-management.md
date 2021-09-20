@@ -262,9 +262,4 @@ public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
 # Récupérer les utilisateurs
 ## Exercice 3
 <br>
-On veut utiliser un service "custom" pour récupérer nos utilisateurs.
-<br>
-
-Indices: changer les classes SchoolUserDetailsService et UserDetailsService
-
-### Bonus: Rajouter un encoder pour gérer nos mots de passe (utiliser SCryptEncoder)
+Utiliser la brique "custom" de Spring Security pour récupérer nos utilisateurs.
