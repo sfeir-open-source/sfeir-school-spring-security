@@ -5,14 +5,14 @@ function schoolSlides() {
 
 function introSlides() {
   return [
-    '01-introduction/020-title.md',
+    '01-introduction/00-title.md',
     '01-introduction/01-introduction.md'
   ];
 }
 
 function definitionsSlides() {
   return [
-    '02-definitions/020-title.md',
+    '02-definitions/00-title.md',
     '02-definitions/010-security-title.md',
     '02-definitions/011-security.md',
     '02-definitions/020-spring-security-title.md',
@@ -22,7 +22,7 @@ function definitionsSlides() {
 
 function configurationSlides() {
   return [
-    '03-configurations/020-title.md',
+    '03-configurations/00-title.md',
     '03-configurations/010-project-creation-title.md',
     '03-configurations/011-project-creation.md',
     '03-configurations/020-user-management-title.md',
