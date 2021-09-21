@@ -18,7 +18,7 @@ L'implémentation par défaut :
 
 ##==##
 
-# La brique de décision spring security par vote
+# La brique de décision Spring Security par vote
 
 <div class="full-center">
     <img src="assets/images/08-access-decision-manager/access-decision-voting.png">
@@ -196,7 +196,7 @@ On veut gérer les accès aux routes de manière dynamiques :
 Objectif de l'exercice :
 <ul>
 <li>créer un composant qui est capable de déterminer dynamiquement si une route est autorisé</li>
-<li>injecter le composant dans la configuration spring security</li>
+<li>injecter le composant dans la configuration Spring Security</li>
 </ul>
 
 ##==##

@@ -1,6 +1,6 @@
-# Oauth2 : un framework d'autorisation
+# OAuth2 : un framework d'autorisation
 
-Oauth 2 est un framework d'autorisation, et non d'authentification
+OAuth2 est un framework d'autorisation, et non d'authentification
 </br> ==> Ne pas confondre avec OpenID Connect
 
 Source : https://datatracker.ietf.org/doc/html/rfc6749
@@ -60,7 +60,7 @@ Le client est le système qui va demander l'accès aux ressources
 
 # Scopes
 
-Dans le jargon oauth2, un scope = un droit/role.
+Dans le jargon OAuth2, un scope = un droit/role.
 Un serveur d'autorisation délivre les scopes autorisé :
 - par le ressource owner 
 - par sa propre configuration
@@ -114,7 +114,7 @@ Le serveur de ressource récupére ces clés pour tenter de valider le token
 ##==##
 
 
-# Oauth2 flow
+# OAuth2 flow
 
 <div class="full-center">
     <img src="./assets/images/7-oauth2/oauth-flow2.png">
@@ -122,7 +122,7 @@ Le serveur de ressource récupére ces clés pour tenter de valider le token
 
 ##==##
 
-# Ajouter le support oauth dans spring security 1
+# Ajouter le support OAuth2 dans Spring Security 1
 Dans le pom.xml ( ou autre gestion de dépendance)
 ```xml
 <dependency>
@@ -132,7 +132,7 @@ Dans le pom.xml ( ou autre gestion de dépendance)
 ```
 ##==##
 
-# Ajouter le support oauth dans spring security 2
+# Ajouter le support OAuth2 dans Spring Security 2
 Dans le application. yml ( ou application.properties)
 ```yaml
 spring:
@@ -144,7 +144,7 @@ spring:
 ```
 ##==##
 
-# Ajouter le support oauth dans spring security 3
+# Ajouter le support OAuth2 dans Spring Security 3
 Dans la config applicative
 ```java
 @Component
@@ -160,10 +160,10 @@ public class GlobalSecurity extends WebSecurityConfigurerAdapter {
 ##==##
 
 <!-- .slide: class="exercice" -->
-# Créer un serveur de ressource oauth2
+# Créer un serveur de ressource OAuth2
 ## Exercice 1 
 <br>
-Créer un serveur de ressource oauth2 exposant 3 API:
+Créer un serveur de ressource OAuth2 exposant 3 API:
 <ul>
 <li> une api publique</li>
 <li> une api authentifié</li>
