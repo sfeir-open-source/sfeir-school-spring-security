@@ -123,11 +123,11 @@ Implémente le process de prise de décision.
 ```java
 public void decide(Authentication authentication,Object secureObject,
   Collection<ConfigAttribute> attrs)throws AccessDeniedException{
-  boolean isAuthorized=checkAuthorization(authentication,secureObject)
-  if(!isAuthorized){
-  throw new AccessDeniedException("Authorization is missing");
-  }
-  }
+    boolean isAuthorized=checkAuthorization(authentication,secureObject)
+    if(!isAuthorized){
+        throw new AccessDeniedException("Authorization is missing");
+     }
+}
 ```
 
 </li>
@@ -153,6 +153,33 @@ permet de définir si la classe est applicable à l'objet de sécurité(jwt, use
 </li>
 </ul>
 
+
+##==##
+
+# Exemple complet
+
+```java
+public class CustomAccessDecisionManager implements AccessDecisionManager {
+    
+  @Override
+  public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
+      if (!isAuthorized()) {
+        throw new AccessDeniedException("Access Denied");
+      }
+      //si on ne retourne pas d'exception, l'accès est autorisé
+  }
+
+  @Override
+  public boolean supports(ConfigAttribute attribute) {
+    return true;
+  }
+
+  @Override
+  public boolean supports(Class<?> clazz) {
+    return FilterInvocation.class.isAssignableFrom(clazz);
+  }
+}
+```
 
 ##==##
 

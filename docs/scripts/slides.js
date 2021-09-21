@@ -36,7 +36,6 @@ function configurationSlides() {
     '03-configurations/070-security-context-title.md',
     '03-configurations/071-security-context.md',
     '03-configurations/080-form-login-title.md',
-    '03-configurations/081-form-login.md',
     '03-configurations/085-dynamic-form-login.md',
   ]
 }

@@ -5,7 +5,7 @@ Oauth 2 est un framework d'autorisation, et non d'authentification
 
 Source : https://datatracker.ietf.org/doc/html/rfc6749
 
-Une autorisation est défini par les éléments suivants: 
+Une autorisation est définie par les éléments suivants: 
 <ul>
     <li class="fragment">un sujet</li>
     <li class="fragment">une audience</li>
@@ -22,29 +22,31 @@ Une autorisation est défini par les éléments suivants:
 
 ##==##
 
+# Resource Owner
+
+L'utilisateur ou application :
+- qui possède les ressources que l'on veut sécuriser
+- peut donner un consentement pour accéder à ces données
+##==##
+
 # Resource Server
 
-Le serveur qui possède la donnée à laquelle on veut accéder (Rest apis par exemple)
+Le serveur qui possède la donnée à laquelle on veut accéder
 
 ##==##
 
 # Authorization Server
 
-Le serveur qui autorise un client à accéder à un jeu de ressources donnée ( un serveur social comme google/facebook,...).
+Le serveur qui autorise un client à accéder à un jeu de ressources donnée
+<br/>
 Il émettra pour ce faire un token d'autorisation .
 
 ##==##
 
 # Client
 
-Le client est le système qui va demander l'accès aux ressources (site web, app mobile, ...)
+Le client est le système qui va demander l'accès aux ressources
 
-##==##
-
-# Resource Owner
-
-L'utilisateur ou application qui possède les ressources que l'on veut sécuriser ( l'utilisateur ).
-Il peut donner un consentement pour accéder à ces données
 ##==##
 
 # Récapitulatif
@@ -59,7 +61,9 @@ Il peut donner un consentement pour accéder à ces données
 # Scopes
 
 Dans le jargon oauth2, un scope = un droit/role.
-Un serveur d'autorisation délivre les scopes autorisé par le ressource owner ou sa propre configuration
+Un serveur d'autorisation délivre les scopes autorisé :
+- par le ressource owner 
+- par sa propre configuration
 ##==##
 
 # Jwt
@@ -93,13 +97,14 @@ Cf RFC rfc7519 ==> https://datatracker.ietf.org/doc/html/rfc7519
 Les 3 parties(header, payload,signature) sont encodés via base64-urlsafe.</li>
 
 <li>
-Un jwt peut aussi être signé et/out chiffré.</li>
+Un jwt peut aussi être signé et/ou chiffré.</li>
 </ul>
 
 ##==##
 
 # Jwt Signé
 En général, les Jwt sont signé par une clé RSA(clé publique/privé).
+<br/>
 On trouvera un champ kid dans le header du token déterminant la clé utilisé pour la signature.
 
 Un serveur d'autorisation expose ses clés via un format appelé JWK
@@ -115,6 +120,43 @@ Le serveur de ressource récupére ces clés pour tenter de valider le token
     <img src="./assets/images/7-oauth2/oauth-flow2.png">
 </div>
 
+##==##
+
+# Ajouter le support oauth dans spring security 1
+Dans le pom.xml ( ou autre gestion de dépendance)
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+</dependency>
+```
+##==##
+
+# Ajouter le support oauth dans spring security 2
+Dans le application. yml ( ou application.properties)
+```yaml
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: <server_uri>
+```
+##==##
+
+# Ajouter le support oauth dans spring security 3
+Dans la config applicative
+```java
+@Component
+public class GlobalSecurity extends WebSecurityConfigurerAdapter {
+
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.oauth2ResourceServer().jwt();
+  }
+}
+```
 ##==##
 
 <!-- .slide: class="exercice" -->
