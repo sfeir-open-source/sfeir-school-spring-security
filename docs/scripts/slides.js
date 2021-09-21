@@ -10,19 +10,11 @@ function introSlides() {
   ];
 }
 
-function definitionsSlides() {
-  return [
-    '02-definitions/00-title.md',
-    '02-definitions/010-security-title.md',
-    '02-definitions/011-security.md',
-    '02-definitions/020-spring-security-title.md',
-    '02-definitions/021-spring-security.md'
-  ]
-}
-
 function configurationSlides() {
   return [
     '03-configurations/00-title.md',
+    '03-configurations/000-definition-title.md',
+    '03-configurations/001-definition.md',
     '03-configurations/010-project-creation-title.md',
     '03-configurations/011-project-creation.md',
     '03-configurations/020-user-management-title.md',
@@ -54,7 +46,6 @@ function formation() {
   return [
     ...schoolSlides(),
     ...introSlides(),
-    ...definitionsSlides(),
     ...configurationSlides(),
     ...autorisationSlides()
   ].map(slidePath => {
