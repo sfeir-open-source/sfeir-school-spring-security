@@ -84,7 +84,6 @@ Où le trouver ?
   <ol>
     <li class="fragment">WebSecurityConfigurerAdapter</li>
     <li class="fragment">configure(HttpSecurity http)</li>
-    <li class="fragment">http.httpBasic()</li>
     <li class="fragment">http.authorizeRequest()</li>
   </ol>
 </ol>
@@ -98,6 +97,7 @@ Où le trouver ?
 ## Ajouter un formulaire de login - se logguer, délogguer
 ### Takeaway
 <ol>
+  <li class="fragment">http.httpBasic()</li>
   <li class="fragment">http.formLogin()</li>
   <li class="fragment">se délogguer via /logout</li>
 </ol>
