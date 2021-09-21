@@ -1,4 +1,4 @@
-# XXX
+# Sfeir School : Spring security
 
 A [SFEIR School](https://info.sfeir.com/java-spring-security)
 
@@ -17,5 +17,5 @@ To run docs locally, go in directory `docs` and run `npx serve` of if you don't 
 
 Workshops are in directory `steps` : 
 * two directories per workshop :
-  * one with a README.md with workshop steps and source file to complete
+  * first directory suffixed with starter,and a README.md with workshop steps and source file to complete
   * a second directory suffixed with `-solution` which contains source file with solutions.

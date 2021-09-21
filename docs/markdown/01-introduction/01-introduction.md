@@ -1,10 +1,21 @@
 # Objectifs de la formation:
 
+- Découvrir les briques de base spring security
+- Découvrir comment sécuriser une application avec oauth2
+
 ##==##
 # Ce qu'on ne verra pas:
 
+- Concepts généraux et bonnes pratiques de sécurité  (failles, etc ...)
+- Concepts avancés de spring security
+
 ##==##
 # Pour aller plus loin:
+
+- Les concepts généraux et bonnes pratiques de sécurité
+- Découvrir les failles de sécurité (https://owasp.org/www-project-top-ten/)
+- Documentation sur spring security
+- Approfondir OAuth2/OpenID
 
 ##==##
 # Déroulement de la formation:

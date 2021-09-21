@@ -36,6 +36,16 @@
 
 ##==##
 
+<!-- .slide: class="speaker-slide" -->
+
+# Présentation
+
+![speaker](./assets/images/User_icon_2.svg)
+
+## Et Vous ?
+
+##==##
+
 # Rappel important avant de commencer
 
 **Veuillez remplir la feuille de présence (obligatoire)** <!-- .element: class="center" -->

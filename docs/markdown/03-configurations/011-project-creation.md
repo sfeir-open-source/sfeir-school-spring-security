@@ -261,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 </ol>
 
 ##==##
-# Définition: Authentification et Authorisation
+# Définition: Authentification et Autorisation
 
 ##==##
 # Définition: Authentification
