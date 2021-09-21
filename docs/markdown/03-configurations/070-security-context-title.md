@@ -1,3 +1,3 @@
 <!-- .slide: class="transition underline" -->
 
-# 6. Security context
+# 6. Récupérer le contexte

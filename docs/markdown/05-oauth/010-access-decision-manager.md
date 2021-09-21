@@ -198,6 +198,3 @@ Objectif de l'exercice :
 <li>créer un composant qui est capable de déterminer dynamiquement si une route est autorisé</li>
 <li>injecter le composant dans la configuration Spring Security</li>
 </ul>
-
-##==##
-

@@ -32,6 +32,4 @@ Objectif de l'exercice :
 <li>découvrir comment faire un serveur d'autorisation avec Spring Security</li>
 </ul>
 
-##==##
-
 
