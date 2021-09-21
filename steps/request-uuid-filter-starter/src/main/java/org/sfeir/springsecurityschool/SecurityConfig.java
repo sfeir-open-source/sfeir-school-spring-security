@@ -11,20 +11,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final RequestUnuuidifierFilter requestUnuuidifierFilter;
-
-    public SecurityConfig(RequestUnuuidifierFilter requestUnuuidifierFilter) {
-        this.requestUnuuidifierFilter = requestUnuuidifierFilter;
-    }
+    //TODO ajouter le filter dans la config
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-          .csrf()
-          .disable()
-          .addFilterAfter(requestUnuuidifierFilter, UsernamePasswordAuthenticationFilter.class)
-          .authorizeRequests()
-          .anyRequest()
-          .permitAll();
+      http
+        .csrf()
+        .disable()
+        .authorizeRequests()
+        .anyRequest()
+        .permitAll();
     }
 }

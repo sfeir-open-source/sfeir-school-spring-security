@@ -28,14 +28,22 @@ public class RequestUnuuidifierFilter extends OncePerRequestFilter {
     public RequestUnuuidifierFilter(UuidLookUpService uuidLookUpService) {
         this.uuidLookUpService = uuidLookUpService;
         templates = new HashMap<>();
-        //TODO ajouter les url a traiter
+        //permet de filtrer les requetes devant être traité par le filter
+        templates.put(new UriTemplate("/hello/{name}"),"GET");
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         log.debug("Filtering the request with URI {}", httpServletRequest.getRequestURI());
 
-        //TODO ajouter la logique de filtre uuid ici
+        String requestURI = httpServletRequest.getRequestURI();
+        log.debug("Trying to translate the request URI {}", requestURI);
+        UriTemplate uriTemplate = getMatchingUriTemplate(requestURI,httpServletRequest.getMethod());
+        //TODO1 si le template n'existe pas on poursuit l'éxecution de la filter chain
+        //TODO2 si le template est trouvé on tente de le de-uuidifier et on forward la requete sur la nouvelle url
+        //TODO3 en cas d'erreur renvoyer un 403
+        //hint : regarder les méthodes offertes par HttpServletRequest et HttpServletResponse pour gérer ces 2 cas
+
     }
 
   /**
