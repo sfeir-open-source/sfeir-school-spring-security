@@ -1,5 +1,7 @@
 package com.sfeir.requestparamtokenfilter.security;
 
+import com.sfeir.requestparamtokenfilter.exception.ExpiredTokenException;
+import com.sfeir.requestparamtokenfilter.exception.TokenAuthenticationException;
 import com.sfeir.requestparamtokenfilter.service.jwk.Jwk;
 import io.jsonwebtoken.*;
 import lombok.SneakyThrows;
@@ -29,6 +31,7 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
   public AuthenticationToken(String token) {
     //read token and load roles if needed
     super(Collections.singletonList(new SimpleGrantedAuthority("USER")));
+    //Non nécessaire, mais pour illustrer le process :)
     setAuthenticated(false);
     this.token = token;
   }
@@ -40,18 +43,32 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
 
   @Override
   public Object getPrincipal() {
+    //TODO récuperer le sub dans le token pour valoriser le principal
     return jwt.getBody().getSubject();
   }
 
+  /**
+   * On recupere l'id de clé dans le header
+   * @return
+   */
   public String getKeyId() {
     return JwtHelper.headers(token).get("kid");
   }
 
   public void verifyToken(Jwk key) {
-      //TODO utiliser la classe Jwts pour valider la signature
+    try {
+      //TODO initialiser l'attribut jwt :
+      // Utiliser l'utilitaire Jwts
+      // on doit utiliser la clé de signature (utiliser la méthode getRsaPublicKey fourni dans la classe pour convertire le JWK)
+      // on parse ensuite l'object token
+
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+      //TODO si erreur, jeter l'exception TokenAuthenticationException
+    }
   }
 
   public void checkIfExpired() {
+    //TODO utiliser l'object jwt présent dans la classe pour vérifier la validité du token
   }
 
   /**
