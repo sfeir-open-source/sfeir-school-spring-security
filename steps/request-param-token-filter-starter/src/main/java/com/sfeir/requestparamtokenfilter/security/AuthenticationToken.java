@@ -44,7 +44,6 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
   @Override
   public Object getPrincipal() {
     //TODO récuperer le sub dans le token pour valoriser le principal
-    return jwt.getBody().getSubject();
   }
 
   /**
@@ -59,7 +58,7 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
     try {
       //TODO initialiser l'attribut jwt :
       // Utiliser l'utilitaire Jwts
-      // on doit utiliser la clé de signature (utiliser la méthode getRsaPublicKey fourni dans la classe pour convertire le JWK)
+      // on doit utiliser la clé de signature (utiliser la méthode getRsaPublicKey fourni dans la classe pour convertir le JWK)
       // on parse ensuite l'object token
 
     } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
