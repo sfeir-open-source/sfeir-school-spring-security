@@ -51,3 +51,11 @@
 **Veuillez remplir la feuille de présence (obligatoire)** <!-- .element: class="center" -->
 
 https://bit.ly/sfeir-xxx <!-- .element: class="center" -->
+
+##==##
+
+# Wifi
+
+SSID : sfeirlille_guest
+<br/>
+Password : welcome@sfeir.com
