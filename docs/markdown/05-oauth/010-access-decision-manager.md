@@ -18,7 +18,7 @@ L'implémentation par défaut :
 
 ##==##
 
-# La brique de décision spring security par vote
+# La brique de décision Spring Security par vote
 
 <div class="full-center">
     <img src="assets/images/08-access-decision-manager/access-decision-voting.png">
@@ -123,11 +123,11 @@ Implémente le process de prise de décision.
 ```java
 public void decide(Authentication authentication,Object secureObject,
   Collection<ConfigAttribute> attrs)throws AccessDeniedException{
-  boolean isAuthorized=checkAuthorization(authentication,secureObject)
-  if(!isAuthorized){
-  throw new AccessDeniedException("Authorization is missing");
-  }
-  }
+    boolean isAuthorized=checkAuthorization(authentication,secureObject)
+    if(!isAuthorized){
+        throw new AccessDeniedException("Authorization is missing");
+     }
+}
 ```
 
 </li>
@@ -156,6 +156,33 @@ permet de définir si la classe est applicable à l'objet de sécurité(jwt, use
 
 ##==##
 
+# Exemple complet
+
+```java
+public class CustomAccessDecisionManager implements AccessDecisionManager {
+    
+  @Override
+  public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
+      if (!isAuthorized()) {
+        throw new AccessDeniedException("Access Denied");
+      }
+      //si on ne retourne pas d'exception, l'accès est autorisé
+  }
+
+  @Override
+  public boolean supports(ConfigAttribute attribute) {
+    return true;
+  }
+
+  @Override
+  public boolean supports(Class<?> clazz) {
+    return FilterInvocation.class.isAssignableFrom(clazz);
+  }
+}
+```
+
+##==##
+
 <!-- .slide: class="exercice" -->
 
 # Créer un access decision manager pour routes dynamiques
@@ -169,8 +196,5 @@ On veut gérer les accès aux routes de manière dynamiques :
 Objectif de l'exercice :
 <ul>
 <li>créer un composant qui est capable de déterminer dynamiquement si une route est autorisé</li>
-<li>injecter le composant dans la configuration spring security</li>
+<li>injecter le composant dans la configuration Spring Security</li>
 </ul>
-
-##==##
-

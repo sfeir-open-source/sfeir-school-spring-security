@@ -42,15 +42,7 @@
 
 ![speaker](./assets/images/User_icon_2.svg)
 
-## Et Vous ?
-
-##==##
-
-# Rappel important avant de commencer
-
-**Veuillez remplir la feuille de présence (obligatoire)** <!-- .element: class="center" -->
-
-https://bit.ly/sfeir-xxx <!-- .element: class="center" -->
+## Et vous ?
 
 ##==##
 

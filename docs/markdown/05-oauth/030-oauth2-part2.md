@@ -6,19 +6,19 @@ On veut s'interfacer avec une api legacy :
 <ul>
 <li> on reçoit le token en query param</li>
 <li> valider ce token</li>
-<li> utiliser notre propre authentication manager pour token jwt oauth2</li>
+<li> utiliser notre propre authentication manager pour token jwt OAuth2</li>
 </ul>
 Objectif de l'exercice :
 <ul>
-<li>créer un filtre capable d'authentifier via un token oauth2</li>
-<li>créer un AuthenticationProvider capable de valider un token oauth2</li>
-<li>injecter les composants dans la configuration spring security</li>
+<li>créer un filtre capable d'authentifier via un token OAuth2</li>
+<li>créer un AuthenticationProvider capable de valider un token OAuth2</li>
+<li>injecter les composants dans la configuration Spring Security</li>
 </ul>
 
 ##==##
 
 <!-- .slide: class="exercice" -->
-# Créer un serveur de d'autorisation oauth2
+# Créer un serveur de d'autorisation OAuth2
 ## Exercice 3
 <br>
 Créer un serveur d'autorisation:
@@ -29,9 +29,7 @@ Créer un serveur d'autorisation:
 Objectif de l'exercice :
 <ul>
 <li>créer un serveur d'autorisation</li>
-<li>découvrir comment faire un serveur d'autorisation avec spring security</li>
+<li>découvrir comment faire un serveur d'autorisation avec Spring Security</li>
 </ul>
-
-##==##
 
 

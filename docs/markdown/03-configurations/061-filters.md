@@ -294,5 +294,5 @@ On a un serveur qui veut obfusquer ses id internes ( ex open banking ) :
 Objectif de l'exercice :
 <ul>
 <li> créér un filtre qui gère ce problème</li>
-<li> injecter ce filtre dans la configuration spring security</li>
+<li> injecter ce filtre dans la configuration Spring Security</li>
 </ul>

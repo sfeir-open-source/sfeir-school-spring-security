@@ -1,10 +1,25 @@
-# Form Login : provider externe
+# Form Login
 
-# Cas d'utilisation
+# Cas d'utilisation : Appeler une page de login
 
-Appeler un provider externe, ex la mire de login de l'entreprise
+```java
+@Component
+public class GlobalSecurity extends WebSecurityConfigurerAdapter {
 
-On surchargera le composant LoginUrlAuthenticationEntryPoint pour générer une url.
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .formLogin()
+                .loginPage("/login");
+    }
+}  
+```
+
+##==##
+
+# Cas d'utilisation : Appeler un provider d'authentification externe
+
+On utiliser le composant LoginUrlAuthenticationEntryPoint pour générer une url.
 <br>
 Pour ce faire, on peut utiliser la méthode suivante
 
@@ -43,4 +58,3 @@ protected void configure(HttpSecurity http) throws Exception {
 
 Source : 
 https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/authentication/LoginUrlAuthenticationEntryPoint.html
-##==##

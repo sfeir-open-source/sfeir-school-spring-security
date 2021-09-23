@@ -1,3 +1,3 @@
 <!-- .slide: class="transition underline" -->
 
-# 5. Filtres
+# 5. Filtrer les requêtes

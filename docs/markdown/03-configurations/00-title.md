@@ -1,3 +1,3 @@
 <!-- .slide: class="transition bg-pink" -->
 
-# II. Configurer Spring Security
+# I. Découvrir Spring Security
