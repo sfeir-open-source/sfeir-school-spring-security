@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "3332073c-1807-4cf4-8e61-3a0110517712",
+		"name": "sfeir school",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "0oa1nzz7bmhQ2bsBJ5d7",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "Gfyol4hSu0PkO-T9y2eNGU7f1kjr4Kk_NPgRJZAD",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev-56443628.okta.com/oauth2/aus1nztlwsqX4tYHg5d7/v1/token",
+					"protocol": "https",
+					"host": [
+						"dev-56443628",
+						"okta",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"aus1nztlwsqX4tYHg5d7",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client_credentials test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "dummy-client",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "dummy-password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test token filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8445/hello?token=eyJraWQiOiJYMzFFTFpWelVsZVFvbmtBaVl0VFdSazE2LU9WakU5bnFXWkFMTjFtQnM0IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULllxN0NYVm5VYWZFYmNSM1VSUmcybTEwNkRpUklwVHBxeEFOU291RUFYc0EiLCJpc3MiOiJodHRwczovL2Rldi01NjQ0MzYyOC5va3RhLmNvbS9vYXV0aDIvYXVzMW56dGx3c3FYNHRZSGc1ZDciLCJhdWQiOiJzcHJpbmctc2VjdXJpdHktc2Nob29sIiwiaWF0IjoxNjMyMDY5NTI5LCJleHAiOjE2MzIwNzMxMjksImNpZCI6IjBvYTFueno3Ym1oUTJic0JKNWQ3Iiwic2NwIjpbImFkbWluIl0sInN1YiI6IjBvYTFueno3Ym1oUTJic0JKNWQ3In0.T5G4fXmCJktznvQnidReefsPkDU24FOYRKZLtZskaDI-TxrAn6nPm3uPqbNXhm5WwTPiBdNw9QGMA92ME9Qn6h_SC08IgX-Kpak6goP_nCmue5dV_UovASzhMKuGtp8vC_MdMv-RcictweqBQLJ0sBWwE-9WbCoj9BZqhgZqVukVmwbTolbmjdV5RXlw1QRlh4nly4BgkFHX1JkAOo4s4d32ael6k5q4bef3dGvYndVsRGc_ofqlOFsNmn1J-1mllD29fgc4o8w0OGpfAkovIwUyxbsak54uhHiuKZApzpz14-kwHI5LcZu0F00W53ejwxB3e4vRFu1XMAYfitTPnA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8445",
+					"path": [
+						"hello"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJYMzFFTFpWelVsZVFvbmtBaVl0VFdSazE2LU9WakU5bnFXWkFMTjFtQnM0IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULllxN0NYVm5VYWZFYmNSM1VSUmcybTEwNkRpUklwVHBxeEFOU291RUFYc0EiLCJpc3MiOiJodHRwczovL2Rldi01NjQ0MzYyOC5va3RhLmNvbS9vYXV0aDIvYXVzMW56dGx3c3FYNHRZSGc1ZDciLCJhdWQiOiJzcHJpbmctc2VjdXJpdHktc2Nob29sIiwiaWF0IjoxNjMyMDY5NTI5LCJleHAiOjE2MzIwNzMxMjksImNpZCI6IjBvYTFueno3Ym1oUTJic0JKNWQ3Iiwic2NwIjpbImFkbWluIl0sInN1YiI6IjBvYTFueno3Ym1oUTJic0JKNWQ3In0.T5G4fXmCJktznvQnidReefsPkDU24FOYRKZLtZskaDI-TxrAn6nPm3uPqbNXhm5WwTPiBdNw9QGMA92ME9Qn6h_SC08IgX-Kpak6goP_nCmue5dV_UovASzhMKuGtp8vC_MdMv-RcictweqBQLJ0sBWwE-9WbCoj9BZqhgZqVukVmwbTolbmjdV5RXlw1QRlh4nly4BgkFHX1JkAOo4s4d32ael6k5q4bef3dGvYndVsRGc_ofqlOFsNmn1J-1mllD29fgc4o8w0OGpfAkovIwUyxbsak54uhHiuKZApzpz14-kwHI5LcZu0F00W53ejwxB3e4vRFu1XMAYfitTPnA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test resource super secure",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJYMzFFTFpWelVsZVFvbmtBaVl0VFdSazE2LU9WakU5bnFXWkFMTjFtQnM0IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULl9oOTVxaDdGMjY2ZUZLdEdaRW9HVDg0bHFPVFNjRlV2dmpOSTZPNTV2Z00iLCJpc3MiOiJodHRwczovL2Rldi01NjQ0MzYyOC5va3RhLmNvbS9vYXV0aDIvYXVzMW56dGx3c3FYNHRZSGc1ZDciLCJhdWQiOiJzcHJpbmctc2VjdXJpdHktc2Nob29sIiwiaWF0IjoxNjMxMDI2Njk0LCJleHAiOjE2MzEwMzAyOTQsImNpZCI6IjBvYTFueno3Ym1oUTJic0JKNWQ3Iiwic2NwIjpbImFkbWluIl0sInN1YiI6IjBvYTFueno3Ym1oUTJic0JKNWQ3In0.nISJxVQmElv9VYm4whOw0sJ5kAywUyZ_CcVZPUR2BBJvAWLzcZcWk2KRaXL8VoxBr3ZiHPB9fvhCsf6G_zDwPutIYMILfXsPvoWWdSyuUyz64u6sNPcwjD8rnUM6s-4-AW8ttKwvl-Tm6ZdkNHaHPrYGoyXNQ8Me-Wx1wd-cvmAeih1RTS6-vAotuV-IbepNvNCmyORxFlnq0fQYOukeNVcvhNtEK3rTw3kXG0tlhBNihIMmjgb_C4d0hZIT_3exojN_8KxL27Uj_xHq_k8ndrMOoFAO1daC-S65lTH231rhMqdxHO9rCkqUekA0f8PXoyRP7klVdRhCc_uzQT5B6A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8444/super-secure",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8444",
+					"path": [
+						"super-secure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test custom access add route",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"method\" : \"GET\",\r\n    \"uri\" : \"/random/scope1\",\r\n    \"scope\" : \"scope1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8443/route",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"route"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test custom access get route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8443/route",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"route"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test custom access random route",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJYMzFFTFpWelVsZVFvbmtBaVl0VFdSazE2LU9WakU5bnFXWkFMTjFtQnM0IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULjF1Qk1ITkd1cmxjbGEtVUFSXzZ1ZzdndFktYU93aGNpZ25uV0pjbXlISjgiLCJpc3MiOiJodHRwczovL2Rldi01NjQ0MzYyOC5va3RhLmNvbS9vYXV0aDIvYXVzMW56dGx3c3FYNHRZSGc1ZDciLCJhdWQiOiJzcHJpbmctc2VjdXJpdHktc2Nob29sIiwiaWF0IjoxNjMxMDIyODk1LCJleHAiOjE2MzEwMjY0OTUsImNpZCI6IjBvYTFueno3Ym1oUTJic0JKNWQ3Iiwic2NwIjpbInNjb3BlMSJdLCJzdWIiOiIwb2Exbnp6N2JtaFEyYnNCSjVkNyJ9.oR7MUbVTc0_VNVzppyoriZoLM9-uGcsU8v7pk-uT2ztwgaOAJQf8jjlhekfVWmcd7kcRFrrvgOudQyJtJCM_bJTcTwXSPjWKulK-c5Y3HP5S_Y0tH1S6OkXsHvZH4OEbAUU4U7hx_X-bUQlpprlbdr39rfNRljQbr2s_-k1txqpV8WvtRF8uhaYa3Yc-jRKLBzLrgGcTnm3eH8S8M86zzKS0NQbVok2QAAwCWKWkdrVftU8-W740EstD4BNHQeAFGnBFLeZ_WGnbmuVnOV_yljLf5ygXISw0gS5ZH11AL_ki6zPR1ASb7eNepo9EkS3OQNhDaSR4bV0kkCXrY_lPEw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8443/random/toto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"random",
+						"toto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test uuid filter get default uuid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/bb829bb5-a46a-42f6-bc35-03b942b4ad68",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"bb829bb5-a46a-42f6-bc35-03b942b4ad68"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test uuid filter post route",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/newRoute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"newRoute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
