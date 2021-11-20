@@ -1,6 +1,12 @@
 // One method per module
 function schoolSlides() {
-  return ['00-presentation/00-presentation.md'];
+  return [
+    '00-presentation/00-presentation.md',
+    '00-presentation/01-ajy.md',
+    '00-presentation/02-oci.md',
+    '00-presentation/03-mfe.md',
+    '00-presentation/99-presentation-end.md'
+  ];
 }
 
 function introSlides() {
