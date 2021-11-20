@@ -1,14 +1,10 @@
-# Tâche à réaliser
+# But de la démo
 
 Créer un filtre permettant de recevoir un token en query params et non dans le header Authorization.
 De plus, on veut procéder manuellement à la validation de nos tokens. On va donc :
 - créér un AuthenticationProvider custom, celui-ci devra être capable de recevoir un token oauth2
 - récupérer la clé de signature
 - valider cette signature et vérifier que le token n'est pas expiré
-
-L'exercice fourni un JwkService pour récupérer la clé publique du token.
-
-# Tips
 
 Ci-joint la requete postman pour générer une autorisation
 
