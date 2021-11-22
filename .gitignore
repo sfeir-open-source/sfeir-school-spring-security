@@ -69,3 +69,4 @@ typings/
 #Dev
 docs/test.html
 /.idea/
+/**/*.iml
