@@ -39,7 +39,7 @@ Exemples de Voter par défaut
 
 ##==##
 
-# Voters : cas du user anonyme
+# Voters : cas du user authentifié
 
 ```java
 @Override
@@ -57,7 +57,7 @@ protected void configure(HttpSecurity http) throws Exception{
 ##==##
 
 
-# Voters : cas du user anonyme
+# Voters : cas du user authentifié
 
 ```java
 @Override

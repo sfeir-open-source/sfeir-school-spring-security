@@ -1,16 +1,18 @@
-<!-- .slide: class="exercice" -->
-# Créer un filtre pour gérer un token en query params
-## Exercice 2
-<br>
-On veut s'interfacer avec une api legacy :
+# Démo: Créer un filtre pour gérer un token en query params
+## Objectif : s'interfacer avec une api legacy
+On veut  :
 <ul>
 <li> on reçoit le token en query param</li>
 <li> valider ce token</li>
 <li> utiliser notre propre authentication manager pour token jwt OAuth2</li>
-</ul>
-Objectif de l'exercice :
 <ul>
-<li>créer un filtre capable d'authentifier via un token OAuth2</li>
+
+##==##
+
+# Démo: Créer un filtre pour gérer un token en query params
+## Les étapes à réaliser :
+</ul>
+<li >créer un filtre capable d'authentifier via un token OAuth2</li>
 <li>créer un AuthenticationProvider capable de valider un token OAuth2</li>
 <li>injecter les composants dans la configuration Spring Security</li>
 </ul>

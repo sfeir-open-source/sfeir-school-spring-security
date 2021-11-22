@@ -170,4 +170,23 @@ Créer un serveur de ressource OAuth2 exposant 3 API:
 <li> une api nécessitant un scope admin</li>
 </ul>
 
+##==##
+
+<!-- .slide: class="exercice" -->
+# Créer un serveur de ressource OAuth2 Custom
+## Exercice 2
+<br>
+Créer un serveur de ressource OAuth2 exposant 3 API:
+<ul>
+<li> une api publique</li>
+<li> une api authentifié</li>
+<li> une api nécessitant un scope admin</li>
+</ul>
+
+On veut vérifier certaines informations manuellemnt:
+<ul>
+<li>audience</li>
+<li>issuer</li>
+</ul>
+
 
