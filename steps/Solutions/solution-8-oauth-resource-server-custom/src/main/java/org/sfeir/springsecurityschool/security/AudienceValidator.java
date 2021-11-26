@@ -10,19 +10,30 @@ import org.springframework.util.Assert;
 import java.util.List;
 
 public class AudienceValidator implements OAuth2TokenValidator<Jwt> {
+
   private final String audience;
 
-  AudienceValidator(String audience) {
-    Assert.hasText(audience, "audience is null or empty");
-    this.audience = audience;
+  private OAuth2Error error;
+
+  /**
+   * Instantiates a new Audience validator.
+   *
+   * @param acceptedAudience the accepted audience
+   */
+  public AudienceValidator(String acceptedAudience) {
+    this.audience = acceptedAudience;
+    this.error = new OAuth2Error("invalid_token", "The required audience " + audience + " is missing", null);
   }
 
+  /**
+   * Validate that the required audience is specified in the token
+   */
+  @Override
   public OAuth2TokenValidatorResult validate(Jwt jwt) {
-    List<String> audiences = jwt.getAudience();
-    if (audiences.contains(this.audience)) {
+    if (jwt.getAudience().contains(audience)) {
       return OAuth2TokenValidatorResult.success();
+    } else {
+      return OAuth2TokenValidatorResult.failure(error);
     }
-    OAuth2Error err = new OAuth2Error(OAuth2ErrorCodes.INVALID_TOKEN);
-    return OAuth2TokenValidatorResult.failure(err);
   }
 }
