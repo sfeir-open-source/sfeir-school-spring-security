@@ -122,6 +122,32 @@ Le serveur de ressource récupére ces clés pour tenter de valider le token
 
 ##==##
 
+# OAuth2 flow
+## Grant Types
+Différents parcours sont possibles pour obtenir une autorisation oauth, en fonction du besoin.
+<br>Quelques grant types : 
+<ul>
+<li>
+Authorization Code
+</li>
+<li>
+Client Credentials
+</li>
+<li>
+Refresh Token
+</li>
+<li>
+Jwt Bearer
+</li>
+<li>
+...
+</li>
+</ul>
+
+https://oauth.net/2/grant-types/ pour plus d'infos
+
+##==##
+
 # Ajouter le support OAuth2 dans Spring Security 1
 Dans le pom.xml ( ou autre gestion de dépendance)
 ```xml
@@ -168,6 +194,25 @@ Créer un serveur de ressource OAuth2 exposant 3 API:
 <li> une api publique</li>
 <li> une api authentifié</li>
 <li> une api nécessitant un scope admin</li>
+</ul>
+
+##==##
+
+<!-- .slide: class="exercice" -->
+# Créer un serveur de ressource OAuth2 Custom
+## Exercice 2
+<br>
+Créer un serveur de ressource OAuth2 exposant 3 API:
+<ul>
+<li> une api publique</li>
+<li> une api authentifié</li>
+<li> une api nécessitant un scope admin</li>
+</ul>
+
+On veut vérifier certaines informations manuellemnt:
+<ul>
+<li>audience</li>
+<li>issuer</li>
 </ul>
 
 
