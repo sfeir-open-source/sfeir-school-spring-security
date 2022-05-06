@@ -1,8 +1,12 @@
 package com.sfeir.solution2.security;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -41,4 +45,33 @@ public class SchoolSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 // 9. Toutes les autres requêtes sont accessibles pour les personnes authentifiées
                 .anyRequest().authenticated();
     }
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return NoOpPasswordEncoder.getInstance();
+  }
+
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    // Create user in memory
+    auth.inMemoryAuthentication()
+      .withUser("admin")
+      .password("admin")
+      .roles("ADMIN");
+
+    auth.inMemoryAuthentication()
+      .withUser("tutor")
+      .password("sfeir")
+      .roles("SFEIR");
+
+    auth.inMemoryAuthentication()
+      .withUser("student")
+      .password("student")
+      .roles("VISITOR");
+
+    auth.inMemoryAuthentication()
+      .withUser("disabled_user")
+      .password("abc")
+      .roles("VISITOR");
+  }
 }
