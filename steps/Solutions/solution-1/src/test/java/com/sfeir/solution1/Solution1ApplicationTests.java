@@ -20,7 +20,7 @@ class Solution1ApplicationTests {
 
   @Test
   void getAnonymousdUser_whenNavigateToPublic_thenDisplayData() throws Exception {
-    var contentAsString = mvc.perform(get("/public"))
+    String contentAsString = mvc.perform(get("/public"))
       .andExpect(status().isOk())
       .andReturn().getResponse().getContentAsString();
 
@@ -28,7 +28,7 @@ class Solution1ApplicationTests {
   }
   @Test
   void getAuthenticatedUser_whenNavigateToPrivate_thenDisplayData() throws Exception {
-    var contentAsString = mvc.perform(get("/private").with(httpBasic("student","student")))
+    String contentAsString = mvc.perform(get("/private").with(httpBasic("student","student")))
       .andExpect(status().isOk())
       .andReturn().getResponse().getContentAsString();
 
