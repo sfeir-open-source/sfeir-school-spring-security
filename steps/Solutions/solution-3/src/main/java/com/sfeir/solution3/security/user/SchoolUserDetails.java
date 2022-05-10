@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,7 +16,10 @@ public class SchoolUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> user.getRole());
+        //return List.of(() -> user.getRole());
+      List<GrantedAuthority> list = new ArrayList<>();
+      list.add((GrantedAuthority) () -> user.getRole());
+      return list;
     }
 
     @Override
