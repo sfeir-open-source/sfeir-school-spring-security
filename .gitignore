@@ -70,3 +70,5 @@ typings/
 docs/test.html
 /.idea/
 /**/*.iml
+.idea/
+
