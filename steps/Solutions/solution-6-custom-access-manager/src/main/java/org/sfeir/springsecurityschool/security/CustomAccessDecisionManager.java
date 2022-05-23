@@ -96,6 +96,7 @@ public class CustomAccessDecisionManager implements AccessDecisionManager {
 
   @Override
   public boolean supports(Class<?> clazz) {
-    return FilterInvocation.class.isAssignableFrom(clazz);
+
+
   }
 }

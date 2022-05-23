@@ -1,0 +1,7 @@
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/route/RoutesProvider.java
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/controller/WildcardUriController.java
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/route/Route.java
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/Application.java
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/security/GlobalSecurity.java
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/security/CustomAccessDecisionManager.java
+/Users/sebastien/Workspace/sfeir/sfeir-school-spring-security/steps/Solutions/solution-6-custom-access-manager-without-oauth2/src/main/java/org/sfeir/springsecurityschool/exceptions/UnknownRouteException.java

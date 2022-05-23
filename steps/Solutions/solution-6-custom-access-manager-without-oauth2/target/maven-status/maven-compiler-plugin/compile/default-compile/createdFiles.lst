@@ -1,0 +1,8 @@
+org/sfeir/springsecurityschool/controller/WildcardUriController.class
+org/sfeir/springsecurityschool/route/RoutesProvider.class
+org/sfeir/springsecurityschool/route/Route.class
+org/sfeir/springsecurityschool/exceptions/UnknownRouteException.class
+org/sfeir/springsecurityschool/route/Route$RouteBuilder.class
+org/sfeir/springsecurityschool/security/GlobalSecurity.class
+org/sfeir/springsecurityschool/security/CustomAccessDecisionManager.class
+org/sfeir/springsecurityschool/Application.class
