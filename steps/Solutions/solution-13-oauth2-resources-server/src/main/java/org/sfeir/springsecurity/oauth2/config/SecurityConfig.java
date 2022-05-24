@@ -10,7 +10,11 @@ public class SecurityConfig {
 
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http.mvcMatcher("/articles/**")
+    http.mvcMatcher("/oauth2protect/public/**")
+      .mvcMatcher("/articles/**")
+      .mvcMatcher("/public/**")
+      .mvcMatcher("/secure/**")
+      .mvcMatcher("/super-secure/**")
       .authorizeRequests()
       .mvcMatchers("/articles/**")
       .access("hasAuthority('SCOPE_articles.read')")

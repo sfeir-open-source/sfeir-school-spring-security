@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://dev-56443628.okta.com/oauth2/aus1nztlwsqX4tYHg5d7
+          issuer-uri: http://auth-server:9000
 server:
   port: 8444
 

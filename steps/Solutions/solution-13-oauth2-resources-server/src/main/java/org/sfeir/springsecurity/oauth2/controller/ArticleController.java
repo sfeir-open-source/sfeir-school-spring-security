@@ -10,4 +10,6 @@ public class ArticleController {
   public String[] getArticles() {
     return new String[]{"Article 1", "Article 2", "Article 3"};
   }
+
+
 }
