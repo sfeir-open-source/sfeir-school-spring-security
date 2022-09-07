@@ -209,7 +209,7 @@ Créer un serveur de ressource OAuth2 exposant 3 API:
 <li> une api nécessitant un scope admin</li>
 </ul>
 
-On veut vérifier certaines informations manuellemnt:
+On veut vérifier certaines informations manuellement:
 <ul>
 <li>audience</li>
 <li>issuer</li>
